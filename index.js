@@ -1,13 +1,9 @@
 const express = require('express');
 const app = express();
-const port = 3000;
-
-//app.use(express.json());
+const serverless = require('serverless-http');
 
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:3000`);
-});
+module.exports.handler = serverless(app);
